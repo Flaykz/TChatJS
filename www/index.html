@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+    <title>TChatJS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <ul id="tchat">
+        <li id="tchatArea">
+            <ul id="showMessage"></ul>
+            <input id="inputMessage" placeholder="Type here..." autocomplete="off" />
+        </li>
+        <li id="login">
+            <h3 id="titleUsername">What's your nickname ?</h3>
+            <input id="inputUsername" type="text" maxlength="14" />
+        </li>
+    </ul>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="/main.js"></script>
+</body>
+</html>
