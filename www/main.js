@@ -52,6 +52,10 @@ $(function() {
         return $('<div/>').text(input).text();
     }
 
+    function updateTyping() {
+        
+    }
+
     //keyboard events
 
     $window.keydown(function (event) {
@@ -78,7 +82,19 @@ $(function() {
     })
 
     $inputMessage.on('input', function() {
-        socket.emit('start typing');
+        if (!typing)
+        {
+            typing = true;
+            socket.emit('start typing');
+        }
+        lastTypingTime = Date.now();
+        setTimeout(function() {
+            var elapsedTime = Date.now() - lastTypingTime;
+            if (typing && elapsedTime >= TYPING_TIMER_LENGTH) {
+                typing = false;
+                socket.emit('stop typing');
+            }
+        }, TYPING_TIMER_LENGTH);
     });
 
     //socket event

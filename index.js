@@ -53,7 +53,11 @@ io.on('connection', function(socket){
         console.log(socket.username + ' joined')
     });
 
-    socket.on('start typing', function(data) {
+    socket.on('start typing', function() {
         socket.broadcast.emit('user typing', socket.username);
+    });
+
+    socket.on('stop typing', function() {
+        socket.broadcast.emit('user stop typing', socket.username);
     });
 });
