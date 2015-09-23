@@ -132,4 +132,8 @@ $(function() {
     socket.on('user stop typing', function(username) {
         logTyping('');
     });
+
+    socket.on('evo', function() {
+        var num = "evo";
+   });
 });

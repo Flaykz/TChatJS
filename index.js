@@ -60,4 +60,8 @@ io.on('connection', function(socket){
     socket.on('stop typing', function() {
         socket.broadcast.emit('user stop typing', socket.username);
     });
+
+    socket.on('evo', function() {
+        socket.broadcast.emit('evo');
+    });
 });
