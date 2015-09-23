@@ -2,12 +2,13 @@ $(function() {
     var socket = io();
 
     var FADE_TIME = 150; //ms
-    var TYPING_TIMER_LENGTH = 500; //ms
+    var TYPING_TIMER_LENGTH = 1000; //ms
 
     var $window = $(window);
     var $tchat = $('#tchat');
     var $tchatArea = $('#tchatArea');
     var $showMessage = $('#showMessage');
+    var $showTyping = $('#typing');
     var $inputMessage = $('#inputMessage');
     var $login = $('#login');
     var $titleUsername = $('#titleUsername');
@@ -25,12 +26,17 @@ $(function() {
         $showMessage.append($('<li>').text(message));
     }
 
+    function logTyping(message) {
+        $showTyping.text(message);
+    }
+
     function sendMessage() {
         var message = $inputMessage.val();
         message = cleanInput(message);
         if (message && connected) {
             $inputMessage.val('');
             log(username + ' : ' + message);
+            $showMessage[0].scrollTop = $showMessage[0].scrollHeight;
             socket.emit('new message', {
                 username: username,
                 message: message
@@ -120,10 +126,10 @@ $(function() {
     });
 
     socket.on('user typing', function(username) {
-        log(username + ' begin typing...');
+        logTyping(username + ' begin typing...');
     });
 
     socket.on('user stop typing', function(username) {
-        log(username + ' stop typing !');
+        logTyping('');
     });
 });

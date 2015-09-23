@@ -5,32 +5,38 @@
 body {
     font: 13px Helvetica, Arial;
     height: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
+    border: 0;
 }
 
 #tchat {
     height: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
-    width: 100%;
+    border: 0;
+    position: absolute;
 }
 
 #tchatArea {
-    height: 95%;
-    position: absolute;
+    height: 100%;
     width: 100%;
-    display: none;
+    position: absolute;
+    display: none; /* Cache la fenetre d'envoi tant qu'on se logue pas */
 }
 
 #showMessage {
-    list-style-type: none;
     margin: 0;
+    border: 0;
     padding: 0;
+    padding-bottom: 5%;
     font-size: 150%;
-    height: 100%;
-    padding-bottom: 60px;
+    height: 95%;
+    width: 100%;
     overflow-y: scroll;
+    word-wrap: break-word;
 }
 
 #showMessage li {
@@ -41,23 +47,24 @@ body {
     background: #eee;
 }
 
-.typing {
+#typing {
+    position: absolute;
+    bottom: 5%;
     color: grey;
+    font-size: 70%;
+    padding: 5px 10px;
 }
 
 #inputMessage {
-    border: 10px solid #000;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    outline: none;
-    padding-left: 10px;
-    position: absolute;
     width: 100%;
-    margin-right: .5%;
-    font-size: 100%;
-    background-color: #292925;
+    height: 5%;
+    font-size: 150%;
+    background-color: #000;
     color: white;
+    padding: 5px 10px;
+    margin: 0;
+    border: 0;
+    position: fixed;
 }
 
 #login {
