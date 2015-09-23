@@ -2,7 +2,7 @@ $(function() {
     var socket = io();
 
     var FADE_TIME = 150; //ms
-    var TYPING_TIMER_LENGTH = 400; //ms
+    var TYPING_TIMER_LENGTH = 500; //ms
 
     var $window = $(window);
     var $tchat = $('#tchat');

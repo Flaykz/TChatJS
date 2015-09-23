@@ -30,6 +30,7 @@ body {
     font-size: 150%;
     height: 100%;
     padding-bottom: 60px;
+    overflow-y: scroll;
 }
 
 #showMessage li {
@@ -40,9 +41,18 @@ body {
     background: #eee;
 }
 
+.typing {
+    color: grey;
+}
+
 #inputMessage {
-    border: 0;
-    padding: 10px;
+    border: 10px solid #000;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    outline: none;
+    padding-left: 10px;
+    position: absolute;
     width: 100%;
     margin-right: .5%;
     font-size: 100%;
